@@ -1,0 +1,22 @@
+{
+  "name": "elsiddigahmed",
+  "version": "1.0.0",
+  "description": "test uploading",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/node-devs/ElsiddiAhmed.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/node-devs/ElsiddiAhmed/issues"
+  },
+  "homepage": "https://github.com/node-devs/ElsiddiAhmed#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
