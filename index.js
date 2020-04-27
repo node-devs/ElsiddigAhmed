@@ -1,20 +1,21 @@
 const express = require("express")
+const routers = require("./routes")
+const mongoose = require("mongoose")
+const { db_url, option } = require("./config")
+
 const app = express()
 
-app.use(function (req, res, next) {
-  // ...
-  console.log(req.ip)
-  console.log(req.headers)
-  console.log(req.params)
-  console.log(req.hostname)
-  console.log(req.query)
-  console.log(req.protocol)
-  next()
+mongoose.connect(db_url, option, function (err) {
+  if (err) console.error(err)
+
+  console.log("Database connected!")
 })
 
-app.get("/books", function (req, res) {
-  res.json("books data in object")
-})
+// use json
+app.use(express.json())
+app.use(express.urlencoded())
+// all routers
+app.use(routers)
 
 app.listen(1234)
 console.log("server start")
