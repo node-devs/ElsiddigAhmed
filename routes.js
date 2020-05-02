@@ -1,6 +1,6 @@
-const router = require("express").Router()
+const router = require('express').Router()
 
-const mongoose = require("mongoose")
+const mongoose = require('mongoose')
 
 const userSchema = new mongoose.Schema({
   username: { type: String },
@@ -8,16 +8,16 @@ const userSchema = new mongoose.Schema({
   email: { type: String },
 })
 
-const userModel = mongoose.model("users", userSchema)
+const userModel = mongoose.model('users', userSchema)
 
-router.post("/addUser", function (req, res) {
+router.post('/addUser', function (req, res) {
   const data = req.body
   // insert new user
   new userModel(data).save()
-  res.send("user added to the database!")
+  res.send('user added to the database!')
 })
 
-router.get("/getUsers", function (req, res) {
+router.get('/getUsers', function (req, res) {
   const users = userModel.find().exec()
 
   users.then((data) => res.json(data))
