@@ -31,4 +31,22 @@ router.get('/getUsers/:id', function (req, res) {
   user.catch((err) => res.json(err))
 })
 
+// update user تعديل بيانات المستخدم
+router.put('/updateUser/:id', function (req, res) {
+  const id = req.params.id
+  const data = req.body
+
+  const user = userModel.findOneAndUpdate({ _id: id }, { $set: data }).exec()
+
+  user.then(() => res.send('User updated successfully'))
+  user.catch((err) => res.json(err))
+})
+
+router.delete('/deleteUser/:id', function (req, res) {
+  const id = req.params.id
+  const user = userModel.findByIdAndDelete({ _id: id }).exec()
+  user.then(() => res.send('user deleted successfully'))
+  user.catch((err) => res.json(err))
+})
+
 module.exports = router
